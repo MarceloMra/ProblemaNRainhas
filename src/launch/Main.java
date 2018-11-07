@@ -18,6 +18,7 @@ public class Main {
         
         //Menu
         do{
+            System.out.println(3%4);
             do{
                 System.out.println("-----> MENU");
                 System.out.println(" 1 - Criar arquivo de instância");
@@ -33,7 +34,7 @@ public class Main {
                     do{
                         System.out.println("Digite a dimensão do tabuleiro: ");
                         dimensao = dado.nextInt();
-                    }while(dimensao < 1);
+                    }while(dimensao < 4);
                     
                     System.out.println("... CRIANDO [instancia"+dimensao+"x"+dimensao+".txt] ...");
                     
