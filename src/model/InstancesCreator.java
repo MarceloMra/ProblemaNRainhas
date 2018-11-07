@@ -87,6 +87,34 @@ public class InstancesCreator {
                         printer.println(-i +" "+ -j);
                     }
                 }
+                
+                //diagonal para esquerda e para baixo
+                j=i;
+                while(true){
+                    j = j + (dimensao - 1);
+                    if(j > dimensao*dimensao || i%dimensao == 1){
+                        break;
+                    }else if(j%dimensao == 1){
+                        printer.println(-i +" "+ -j);
+                        break;
+                    }else{
+                        printer.println(-i +" "+ -j);
+                    }
+                }
+                
+                //diagonal para direita e para cima
+                j=i;
+                while(true){
+                    j = j - (dimensao - 1);
+                    if(j < 1 || i%dimensao == 0){
+                        break;
+                    }else if(j%dimensao == 0){
+                        printer.println(-i +" "+ -j);
+                        break;
+                    }else{
+                        printer.println(-i +" "+ -j);
+                    }
+                }
             }
 
             arquivo.close();

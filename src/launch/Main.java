@@ -18,7 +18,6 @@ public class Main {
         
         //Menu
         do{
-            System.out.println(3%4);
             do{
                 System.out.println("-----> MENU");
                 System.out.println(" 1 - Criar arquivo de instância");
