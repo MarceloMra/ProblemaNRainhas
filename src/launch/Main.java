@@ -35,13 +35,8 @@ public class Main {
                         dimensao = dado.nextInt();
                     }while(dimensao < 4);
                     
-                    System.out.println("... CRIANDO [instancia"+dimensao+"x"+dimensao+".txt] ...");
-                    
-                    if(criador.criarInstancia(dimensao)){
-                        System.out.println("Instância criada com sucesso!");
-                    }else{
-                        System.out.println("Não foi possivel criar a instância solicitada!");
-                    }
+                    System.out.println("... Resolvendo [instancia"+dimensao+"x"+dimensao+".txt] ...");                    
+                    criador.criarInstancia(dimensao);
                     break;
             }
         }while(opc != 0);
