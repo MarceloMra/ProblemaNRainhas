@@ -8,7 +8,6 @@ package model;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 
 /**
  *
@@ -21,10 +20,23 @@ public class InstancesCreator {
         
     }
     
-    private int restricoesGarais(int dimensao) {
+    private int restricoesGerais(int dimensao) {
         int qtdRestricoes = 0;
         String br = System.getProperty("line.separator");
         int j;
+        String temp = br;
+        
+        for(int i = 1; i <= dimensao*dimensao; i++){
+            if(i % dimensao == 0){
+                temp += i+" 0";
+                resultado += temp;
+                qtdRestricoes++;
+                temp = br;
+            }else{
+                temp += i+" ";
+            }
+        }
+        
         //Percorre cada casa do tabuleiro
         for (int i = 1; i <= dimensao * dimensao; i++) {
             //horizontal para frente
@@ -138,16 +150,24 @@ public class InstancesCreator {
 
     public String criarInstancia(int dimensao) {
         try {
-            FileWriter arquivo = new FileWriter("C:\\Users\\morei\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\home\\marcelo\\glucose-syrup-4.1\\simp\\instancia" + dimensao + "x" + dimensao + ".txt");
-            PrintWriter printer = new PrintWriter(arquivo);
-
-            printer.print("p cnf " + dimensao * dimensao + " " + restricoesGarais(dimensao));
-            //Gerar 4 numeros
-            printer.print(resultado);
-            resultado = "";
-            arquivo.close();
-            //verifica se deu SAT
+            FileWriter arquivoGlucose = new FileWriter("C:\\Users\\morei\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\home\\marcelo\\glucose-syrup-4.1\\simp\\instancia" + dimensao + "x" + dimensao + ".txt");
+            PrintWriter printerGlucose = new PrintWriter(arquivoGlucose);
             
+            FileWriter arquivoZchaff = new FileWriter("C:\\Users\\morei\\AppData\\Local\\Packages\\CanonicalGroupLimited.UbuntuonWindows_79rhkp1fndgsc\\LocalState\\rootfs\\home\\marcelo\\zchaff64\\instancia" + dimensao + "x" + dimensao + ".txt");
+            PrintWriter printerZchaff = new PrintWriter(arquivoZchaff);
+            
+            int qtdRestricoes = restricoesGerais(dimensao);
+            
+            printerGlucose.print("p cnf " + dimensao * dimensao + " " + qtdRestricoes);
+            printerGlucose.print(resultado);
+            
+            printerZchaff.print("p cnf " + dimensao * dimensao + " " + qtdRestricoes);
+            printerZchaff.print(resultado);
+            
+            resultado = "";
+            
+            arquivoGlucose.close();
+            arquivoZchaff.close();
         } catch (IOException ex) {
             return ex.getMessage();
             

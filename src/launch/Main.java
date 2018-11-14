@@ -35,7 +35,7 @@ public class Main {
                         dimensao = dado.nextInt();
                     }while(dimensao < 4);
                     
-                    System.out.println("... Resolvendo [instancia"+dimensao+"x"+dimensao+".txt] ...");                    
+                    System.out.println("... Criando [instancia"+dimensao+"x"+dimensao+".txt] ...");                    
                     criador.criarInstancia(dimensao);
                     break;
             }
