@@ -5,9 +5,14 @@
  */
 package model;
 
+import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -168,10 +173,23 @@ public class InstancesCreator {
             
             arquivoGlucose.close();
             arquivoZchaff.close();
+            /*
+                try {
+                    Process process;
+                    process = Runtime.getRuntime().exec("ubuntu");
+                    process = Runtime.getRuntime().exec("ls");
+                    Scanner leitor = new Scanner(process.getInputStream());
+                    while (leitor.hasNextLine()) {
+                        System.out.println(leitor.nextLine());
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            */
         } catch (IOException ex) {
             return ex.getMessage();
             
         }
-        return "Sucesso!";
+        return "Instancia criada com sucesso!";
     }
 }

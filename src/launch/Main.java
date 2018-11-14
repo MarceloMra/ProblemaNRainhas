@@ -15,7 +15,7 @@ public class Main {
     public static void main(String[] args) {
         int opc = 0, dimensao;
         Scanner dado = new Scanner(System.in);
-        
+        InstancesCreator criador = new InstancesCreator();
         //Menu
         do{
             do{
@@ -28,15 +28,13 @@ public class Main {
             
             switch(opc){
                 case 1:
-                    InstancesCreator criador = new InstancesCreator();
-                    
                     do{
                         System.out.println("Digite a dimensão do tabuleiro: ");
                         dimensao = dado.nextInt();
                     }while(dimensao < 4);
                     
                     System.out.println("... Criando [instancia"+dimensao+"x"+dimensao+".txt] ...");                    
-                    criador.criarInstancia(dimensao);
+                    System.out.println(criador.criarInstancia(dimensao));
                     break;
             }
         }while(opc != 0);
