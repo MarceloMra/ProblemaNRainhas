@@ -33,8 +33,11 @@ public class Main {
                         dimensao = dado.nextInt();
                     }while(dimensao < 4);
                     
-                    System.out.println("... Criando [instancia"+dimensao+"x"+dimensao+".txt] ...");                    
+                    System.out.println("... Criando [instancia"+dimensao+"x"+dimensao+".txt] ...");  
+                    long inicio = System.currentTimeMillis();
                     System.out.println(criador.criarInstancia(dimensao));
+                    long termino = System.currentTimeMillis();
+                    System.out.println("Tempo(ms): "+(termino-inicio));
                     break;
             }
         }while(opc != 0);
